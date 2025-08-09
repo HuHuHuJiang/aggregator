@@ -66,6 +66,11 @@ jobs:
 
       - name: Collect
         run: python -u subscribe/collect.py --all --overwrite --skip
-
+      - name: Retry Collect
+        uses: shivammathur/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: python -u subscribe/collect.py --all --overwrite --skip
       - name: Timestamp
         run: date
