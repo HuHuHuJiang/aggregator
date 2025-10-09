@@ -149,7 +149,9 @@ def proxies_exists(proxy: dict, hosts: dict) -> bool:
     protocol = proxy.get("type", "")
     if protocol == "http" or protocol == "socks5":
         return True
-    elif protocol in ["ss", "trojan", "hysteria2"]:
+    # 限定和排除一些clash不支持的站点type,主要是anytls类型的站点
+    # elif protocol in ["ss", "trojan","anytls", "hysteria2"]:
+    elif protocol in ["trojan", "hysteria2"]:
         return any(p.get("password", "") == proxy.get("password", "") for p in proxies)
     elif protocol == "ssr":
         return any(
