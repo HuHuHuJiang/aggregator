@@ -79,7 +79,8 @@ def filter_proxies(proxies: list) -> dict:
         ],
         "rules": ["MATCH,🌐 Proxy"],
     }
-
+    # 过滤掉名字中包含 "TW01" 的节点
+    proxies = [p for p in proxies if "TW01" not in str(p.get("name", ""))]
     # 按名字排序方便在节点相同时优先保留名字靠前的
     proxies.sort(key=lambda p: str(p.get("name", "")))
     unique_proxies, hosts = [], defaultdict(list)
