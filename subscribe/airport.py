@@ -681,6 +681,8 @@ class AirPort:
                 if disable_insecure:
                     if "skip-cert-verify" in item:
                         item["skip-cert-verify"] = False
+                    if "anytls" in item:
+                        item["anytls"] = False    
                     if "tls" in item:
                         item["tls"] = True
 
