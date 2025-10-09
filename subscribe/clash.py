@@ -245,7 +245,7 @@ SSR_SUPPORTED_PROTOCOL = [
 
 VMESS_SUPPORTED_CIPHERS = ["auto", "aes-128-gcm", "chacha20-poly1305", "none"]
 
-SPECIAL_PROTOCOLS = set(["vless", "tuic", "hysteria", "hysteria2", "anytls"])
+SPECIAL_PROTOCOLS = set(["vless", "tuic", "hysteria", "hysteria2"])
 
 # xtls-rprx-direct and xtls-rprx-origin are deprecated and no longer supported
 # XTLS_FLOWS = set(["xtls-rprx-direct", "xtls-rprx-origin", "xtls-rprx-vision"])
