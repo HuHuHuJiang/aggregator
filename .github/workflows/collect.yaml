@@ -65,7 +65,8 @@ jobs:
           fi
 
       - name: Collect
-        run: python -u subscribe/collect.py --all --overwrite --skip
+        # run: python -u subscribe/collect.py --all --overwrite --skip
+        run: python -u subscribe/collect.py -s subscribe/config/config.default.json --all --overwrite --skip
         continue-on-error: true
         
       - name: Collect with retry
