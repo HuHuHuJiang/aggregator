@@ -80,7 +80,7 @@ def filter_proxies(proxies: list) -> dict:
         "rules": ["MATCH,🌐 Proxy"],
     }
     # 过滤掉名字中包含 "VIP" 的节点
-    proxies = [p for p in proxies if "VIP" not in str(p.get("name", ""))]
+    # proxies = [p for p in proxies if "VIP" not in str(p.get("name", ""))]
     # 按名字排序方便在节点相同时优先保留名字靠前的
     proxies.sort(key=lambda p: str(p.get("name", "")))
     unique_proxies, hosts = [], defaultdict(list)
@@ -152,7 +152,6 @@ def proxies_exists(proxy: dict, hosts: dict) -> bool:
         return True
     # 限定和排除一些clash不支持的站点type,主要是anytls类型的站点
     elif protocol in ["ss", "trojan","anytls", "hysteria2"]:
-    # elif protocol in ["ss", "trojan", "hysteria2"]:
         return any(p.get("password", "") == proxy.get("password", "") for p in proxies)
     elif protocol == "ssr":
         return any(
